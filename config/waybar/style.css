@@ -1,0 +1,31 @@
+@import "../colors/tokyo-night.css";
+
+* {
+    border: none;
+    background: @bg;
+    color: @fg;
+
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-weight: bold;
+}
+
+#workspaces button.active {
+    border-radius: 0px;
+    border-bottom: 2px solid @blue;
+}
+
+.modules-right {
+    padding-right: 10px;
+}
+
+#pulseaudio {
+    padding-right: 10px;
+}
+
+#custom-tray-toggle {
+    padding: 0 8px;
+}
+
+#tray {
+    padding: 0 8px;
+}

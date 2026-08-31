@@ -1,0 +1,44 @@
+{
+    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+    "logo": {
+	"type": "sixel",
+	"source": "~/nixos-dotfiles/config/fastfetch/pictures/squirtle.png*",
+	"width": 30,
+	"height": 15
+    },
+    "display": {
+	"separator": ": ",
+	"key": { "width": 14 },
+	"color": {
+	    "keys": "#7aa2f7"
+	},
+	"percent": {
+	    "color": {
+		"green": "38;2;150;168;160",
+		"yellow": "38;2;180;168;140",
+		"red": "38;2;180;140;140"
+	    }
+	}
+    },
+    "modules": [
+	{
+	    "type": "title",
+	    "format": "{##7aa2f7}dylan@{host-name}"
+	},
+	"break",
+
+	{ "type": "host", "key": "󰌢 Host" },
+	{ "type": "cpu", "key": "󰍛 CPU" },
+	{ "type": "gpu", "key": "󰢮 GPU" },
+	{ "type": "memory", "key": "󰑭 RAM" },
+	"break",
+
+	{ "type": "os", "key": "󱄅 OS" },
+	{ "type": "kernel", "key": "󰒋 Kernel" },
+	{ "type": "shell", "key": "󰞷 Shell" },
+	"break",
+
+	{ "type": "uptime", "key": "󱑂 Uptime" },
+	{ "type": "display", "key": "󰍹 Display" }
+    ]
+}
