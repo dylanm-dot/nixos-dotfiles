@@ -4,15 +4,7 @@ let
     dotfiles = "${config.home.homeDirectory}/nixos-dotfiles/config";
     create_symlink = path: config.lib.file.mkOutOfStoreSymlink path;
     configs = {
-	mango = "mango";
-	nvim = "nvim";
-	foot = "foot";
-	equibop = "equibop";
-	waybar = "waybar";
-	colors = "colors";
-	mpv = "mpv";
-	fastfetch = "fastfetch";
-	wofi = "wofi";
+
     };
 in
 
@@ -21,11 +13,6 @@ in
     home.homeDirectory = "/home/dylan";
     home.stateVersion = "26.05";
     
-    programs.git = {
-	enable = true;
-	settings.user.name = "dylanm-dot";
-	settings.user.email = "figment_lawless.2a@icloud.com";
-    };
     programs.fish = {
         enable = true;
 	shellAliases = {
@@ -46,28 +33,10 @@ in
 
     home.packages = with pkgs; [
 	neovim
-	equibop
 	ripgrep
-	wofi
 	nil
-	swaybg
-	waybar
 	nixpkgs-fmt
 	nodejs
 	gcc
-	yazi
-	librewolf
-	spotify
-	steam
-	playerctl
-	fastfetch
-	cliphist
-	wl-clipboard
-	slurp
-	mpv
-	grim
-	git
-	fish
-	wayfreeze
     ];
 }
