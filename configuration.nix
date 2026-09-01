@@ -44,6 +44,7 @@
     environment.systemPackages = with pkgs; [
 	vim
 	wget
+	fish
 	ntfs3g
 	ntfsprogs
     ];
