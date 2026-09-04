@@ -1,0 +1,9 @@
+prefer-no-csd
+layout {
+    border {
+	off	
+    }
+    focus-ring {
+	off
+    }
+}

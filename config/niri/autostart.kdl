@@ -1,0 +1,2 @@
+spawn-at-startup "waybar"
+spawn-at-startup "swaybg" "-i" "$HOME/nixos-dotfiles/config/theme/selected/selected-wallpaper.png"

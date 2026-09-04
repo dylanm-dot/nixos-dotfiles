@@ -1,18 +1,20 @@
-{config, pkgs, ...}:
+{ config, pkgs, ... }:
 
 let
     dotfiles = "${config.home.homeDirectory}/nixos-dotfiles/config";
     create_symlink = path: config.lib.file.mkOutOfStoreSymlink path;
     configs = {
-	mango = "mango";
-	nvim = "nvim";
-	foot = "foot";
 	equibop = "equibop";
-	waybar = "waybar";
-	colors = "colors";
+	nvim = "nvim";
+	theme = "theme";
 	mpv = "mpv";
 	fastfetch = "fastfetch";
+	niri = "niri";
+	mango = "mango";
+	waybar = "waybar";
+	swaybg = "swaybg";
 	wofi = "wofi";
+	alacritty = "alacritty";
     };
 in
 
@@ -20,54 +22,46 @@ in
     home.username = "dylan";
     home.homeDirectory = "/home/dylan";
     home.stateVersion = "26.05";
-    
-    programs.git = {
-	enable = true;
-	settings.user.name = "dylanm-dot";
-	settings.user.email = "figment_lawless.2a@icloud.com";
-    };
+
+    programs.git.enable = true;
+
     programs.fish = {
-        enable = true;
+	enable = true;
 	shellAliases = {
 	    rebuild = "sudo nixos-rebuild switch --flake ~/nixos-dotfiles#nixos";
 	};
 	interactiveShellInit = ''
-	    set -g fish_greeting ""
-	    fastfetch
-	'';
+	    set fish_greeting
+	    '';
     };
 
     xdg.configFile = builtins.mapAttrs
 	(name: subpath: {
-	    source = create_symlink "${dotfiles}/${subpath}";
-	    recursive = true;
-	})
-	configs;
+	 source = create_symlink "${dotfiles}/${subpath}";
+	 recursive = true;
+	 })
+    configs;
 
     home.packages = with pkgs; [
 	neovim
-	equibop
 	ripgrep
-	wofi
 	nil
-	swaybg
-	waybar
 	nixpkgs-fmt
 	nodejs
 	gcc
-	yazi
-	librewolf
-	spotify
-	steam
-	playerctl
-	fastfetch
-	cliphist
-	wl-clipboard
-	slurp
+	gnumake
 	mpv
+	librewolf
+	equibop
+	waybar
+	swaybg
+	fastfetch
+	wl-clipboard
 	grim
-	git
-	fish
+	slurp
 	wayfreeze
+	yazi
+	wofi
+	playerctl
     ];
 }

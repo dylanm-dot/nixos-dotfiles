@@ -11,5 +11,8 @@ return {
 	'windwp/nvim-autopairs',
 	event = "InsertEnter",
 	config = true
-    }
+    },
+    { "ellisonleao/gruvbox.nvim" },
+    { "folke/tokyonight.nvim" },
+    { "rose-pine/neovim", name = "rose-pine" }
 }

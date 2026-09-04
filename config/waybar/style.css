@@ -1,4 +1,4 @@
-@import "../colors/tokyo-night.css";
+@import "../theme/selected/selected-color.css";
 
 * {
     border: none;

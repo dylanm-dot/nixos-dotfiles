@@ -1,0 +1,6 @@
+include "autostart.kdl"
+include "binds.kdl"
+include "decorations.kdl"
+include "inputs.kdl"
+include "rules.kdl"
+include "misc.kdl"

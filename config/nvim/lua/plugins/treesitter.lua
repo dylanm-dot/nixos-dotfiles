@@ -12,6 +12,7 @@ return {
 	    autotage = { enable = true },
 	    ensure_installed = {
 		"lua",
+		"javascript"
 	    },
 	    auto_install = false,
 	})

@@ -1,5 +1,5 @@
 show=drun
-width=400
+width=500
 height=450
 prompt=Search
 matching=fuzzy

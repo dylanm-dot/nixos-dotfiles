@@ -1,0 +1,92 @@
+binds {
+    // menu and terminal
+    Mod+Space { spawn "wofi" "--show" "drun"; }
+    Mod+B     { spawn "alacritty"; }
+
+    // exit / close
+    Mod+M { quit; }
+    Mod+C { close-window; }
+
+    // focus movement (niri has no generic "focus next in stack";
+    // closest is directional focus, which is what you used with ALT+dir anyway)
+    Alt+Left  { focus-column-left; }
+    Alt+Right { focus-column-right; }
+    Alt+Up    { focus-window-up; }
+    Alt+Down  { focus-window-down; }
+
+    // swap window position
+    Mod+Shift+Up    { move-window-up; }
+    Mod+Shift+Down  { move-window-down; }
+    Mod+Shift+Left  { move-column-left; }
+    Mod+Shift+Right { move-column-right; }
+
+    // window state toggles
+    Mod+G       { toggle-overview; }          // closest analog to "toggleglobal"
+    Alt+Tab     { toggle-overview; }          // niri has no "togglejump"; overview is the nearest fit
+    Alt+Backslash { toggle-window-floating; }
+    Alt+A       { maximize-column; }          // closest to togglemaximizescreen
+    Alt+F       { fullscreen-window; }
+    // togglefakefullscreen: no niri equivalent, dropped
+    // minimized / restore_minimized: niri has no minimize concept, dropped
+    // toggle_scratchpad: no named scratchpad in niri, dropped
+
+    // column width / proportion
+    Alt+E { switch-preset-column-width; }     // closest to set_proportion 1.0
+    Alt+X { switch-preset-column-width; }
+    // scroller_stack binds: niri's default layout already *is* the scroller/PaperWM
+    // style mango was emulating, so these are redundant — dropped
+    // dwindle_toggle_split_direction: no dwindle layout in niri, dropped
+
+    // workspaces (niri's equivalent of tags — vertical & scrollable)
+    Ctrl+Shift+1 { focus-workspace 1; }
+    Ctrl+Shift+2 { focus-workspace 2; }
+    Ctrl+Shift+3 { focus-workspace 3; }
+    Ctrl+Shift+4 { focus-workspace 4; }
+    Ctrl+Shift+5 { focus-workspace 5; }
+    Ctrl+Shift+6 { focus-workspace 6; }
+    Ctrl+Shift+7 { focus-workspace 7; }
+    Ctrl+Shift+8 { focus-workspace 8; }
+    Ctrl+Shift+9 { focus-workspace 9; }
+
+    Alt+Shift+1 { move-column-to-workspace 1; }
+    Alt+Shift+2 { move-column-to-workspace 2; }
+    Alt+Shift+3 { move-column-to-workspace 3; }
+    Alt+Shift+4 { move-column-to-workspace 4; }
+    Alt+Shift+5 { move-column-to-workspace 5; }
+    Alt+Shift+6 { move-column-to-workspace 6; }
+    Alt+Shift+7 { move-column-to-workspace 7; }
+    Alt+Shift+8 { move-column-to-workspace 8; }
+    Alt+Shift+9 { move-column-to-workspace 9; }
+
+    // monitor switch
+    Alt+Shift+Left  { focus-monitor-left; }
+    Alt+Shift+Right { focus-monitor-right; }
+    Mod+Alt+Left    { move-column-to-monitor-left; }
+    Mod+Alt+Right   { move-column-to-monitor-right; }
+
+    // gaps: niri sets these in the layout {} block, not as live increment
+    // binds — no runtime incgaps/togglegaps equivalent, dropped
+
+    // resize (niri uses column-width/window-height, not raw x/y move —
+    // tiled windows can't be pixel-moved like mango's movewin)
+    Ctrl+Alt+Up    { set-window-height "-50"; }
+    Ctrl+Alt+Down  { set-window-height "+50"; }
+    Ctrl+Alt+Left  { set-column-width "-50"; }
+    Ctrl+Alt+Right { set-column-width "+50"; }
+    // movewin (CTRL+SHIFT+arrows): only meaningful for floating windows in niri,
+    // and those are moved by mouse drag (Mod+Left-click), not a directional bind — dropped
+
+    // scripts
+    Mod+Shift+S { spawn "bash" "-c" "$HOME/nixos-dotfiles/config/scripts/screenshot.sh"; }
+    Mod+N       { spawn "bash" "-c" "$HOME/nixos-dotfiles/config/scripts/launch.sh"; }
+    Mod+T       { spawn "bash" "-c" "$HOME/nixos-dotfiles/config/scripts/theme-switch.sh"; }
+
+    // media keys
+    XF86AudioPrev { spawn "playerctl" "previous"; }
+    XF86AudioPlay { spawn "playerctl" "play-pause"; }
+    XF86AudioNext { spawn "playerctl" "next"; }
+
+    // scroll-to-switch-workspace (closest to your axisbind)
+    Mod+WheelScrollUp   { focus-workspace-up; }
+    Mod+WheelScrollDown { focus-workspace-down; }
+}
